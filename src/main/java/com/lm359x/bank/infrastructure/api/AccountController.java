@@ -32,9 +32,14 @@ public class AccountController {
     @GetMapping("/{id}")
     public Account getAccountById(@PathVariable Long id,Model model){
 
-        return accountService.getAccountById(id);
+        return accountService.getUserAccountById(id);
     }
 
+    @GetMapping("/{id}/block")
+    public Account blockAccount(@PathVariable Long id){
+
+        return accountService.blockAccount(id);
+    }
 
 
 

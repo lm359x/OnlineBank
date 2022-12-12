@@ -51,8 +51,7 @@ public class User {
         return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", accountList=" + accountList +
+                ", phoneNumber='" + phoneNumber+
                 '}';
     }
 }

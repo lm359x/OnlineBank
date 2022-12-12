@@ -7,12 +7,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class ValidateOperationUseCase extends UseCase<ValidateOperationUseCase.InputValues,
         ValidateOperationUseCase.OutputValues>{
 
     @Override
     public OutputValues execute(InputValues input) {
+        if(Objects.isNull(input.from)|| Objects.isNull(input.to))
+            return new OutputValues(false);
         if(!input.from.getActive()||!input.to.getActive())
             return new OutputValues(false);
         if(input.from.getBalance()<input.amount&&input.from.getAccountType().equals(AccountType.DEBIT))
@@ -31,6 +35,6 @@ public class ValidateOperationUseCase extends UseCase<ValidateOperationUseCase.I
     @AllArgsConstructor
     @Getter
     public static class OutputValues implements UseCase.OutputData{
-        private final boolean result;
+        private final Boolean result;
     }
 }
