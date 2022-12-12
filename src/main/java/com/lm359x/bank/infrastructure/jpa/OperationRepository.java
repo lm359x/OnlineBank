@@ -1,4 +1,10 @@
 package com.lm359x.bank.infrastructure.jpa;
 
-public interface OperationRepository {
+
+import com.lm359x.bank.entity.Operation;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface OperationRepository extends JpaRepository<Operation,Long> {
 }
