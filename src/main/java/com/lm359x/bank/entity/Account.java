@@ -29,10 +29,13 @@ public class Account {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Account(Long balance, AccountType accountType, User user) {
-        Balance = balance;
+    @Column(name="active")
+    private Boolean active;
+
+    public Account(Long balance, AccountType accountType) {
+        this.Balance = balance;
         this.accountType = accountType;
-        this.user = user;
+        this.active = false;
     }
     @OneToMany(mappedBy = "to")
     private List<Operation> inOperations;

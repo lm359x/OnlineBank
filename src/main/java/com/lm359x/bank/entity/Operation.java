@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -28,6 +29,9 @@ public class Operation {
 
     @Column(name="amount")
     private Long amount;
+
+    @Column(name="date_time")
+    private Date dateTime;
 
     public Operation(Account from, Account to, Long amount) {
         this.from = from;

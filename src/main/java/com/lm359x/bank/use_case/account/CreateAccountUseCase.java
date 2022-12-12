@@ -13,12 +13,15 @@ public class CreateAccountUseCase extends UseCase<CreateAccountUseCase.InputValu
 
     @Override
     public OutputValues execute(InputValues input) {
-        return new OutputValues(new Account(0L,input.type,input.user));
+        return new OutputValues(new Account(0L,input.type));
     }
 
+    @AllArgsConstructor
+    @Getter
     public static class InputValues implements UseCase.InputData{
         private User user;
         private AccountType type;
+
     }
 
     @AllArgsConstructor
